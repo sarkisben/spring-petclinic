@@ -1,7 +1,11 @@
-stage ('Scan and Build Jar File') {
-            steps {
-               withSonarQubeEnv(installationName: 'Sonar', credentialsId: 'Token for the Pet Clinic') {
-                sh 'mvn clean package sonar:sonar'
-                }
-            }
-        }
+pipeline {
+     stages{
+          stage ('Scan and Build Jar File') {
+               steps {
+                    withSonarQubeEnv(installationName: 'JenkinsSonarServer', credentialsId: 'SonarToken2') {
+                         sh 'mvn clean package sonar:sonar'
+                    }
+               }
+          }
+    }
+}
