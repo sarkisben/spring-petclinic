@@ -11,5 +11,6 @@ node {
   stage('Build Jar File') {
     sh "./mvnw package"
 	archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+	sh "java -jar target/*.jar"
   }
 }
