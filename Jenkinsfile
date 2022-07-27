@@ -11,6 +11,6 @@ node {
   stage('Build Jar File') {
     sh "./mvnw package"
 	archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
-	sh "java -jar target/*.jar"
+	sh "java -jar -Dserver.port=8888 target/*.jar"
   }
 }
