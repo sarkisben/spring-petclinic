@@ -8,4 +8,8 @@ node {
       sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=PetClinic"
     }
   }
+  stage('Build Jar File') {
+    sh "./mvn package"
+	archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+  }
 }
