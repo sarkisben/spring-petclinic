@@ -9,7 +9,7 @@ node {
     }
   }
   stage('Build Jar File') {
-    sh "./mvn package"
+    sh "./mvnw package"
 	archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
   }
 }
